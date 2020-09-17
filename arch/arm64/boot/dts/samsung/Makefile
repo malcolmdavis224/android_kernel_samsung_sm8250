@@ -25,8 +25,11 @@ $(eval $(call sec_dtbo_build, \
 
 endif
 
+ifeq ($(filter y,$(CONFIG_SEC_Z3Q_PROJECT)),y)
 dts-dirs += z3q
-
+else ifeq ($(filter y,$(CONFIG_SEC_Y2Q_PROJECT)),y)
+dts-dirs += y2q
+endif
 
 always          := $(dtb-y)
 subdir-y        := $(dts-dirs)
